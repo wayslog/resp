@@ -140,7 +140,9 @@ impl Message {
                     size: mycursor - cursor,
                 }));
             }
-            _ => unreachable!(),
+            _ => {
+                return Err(RespError::BadMessage.into());
+            }
         }
 
         Ok(None)
